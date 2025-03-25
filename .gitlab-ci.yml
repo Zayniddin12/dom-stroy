@@ -1,0 +1,25 @@
+before_script:
+  - docker login $CI_REGISTRY --username $CI_REGISTRY_USER --password $CI_REGISTRY_PASSWORD
+
+stages:
+  - build_image
+  - deploy_image
+
+build_image:
+  stage: build_image
+  image: registry.uicgroup.tech/devops/docker:dind
+  script:
+    - make vars-input
+    - make build-image TAG=$CI_PIPELINE_IID SERVICE_NAME=$CI_PROJECT_NAME PROJECT_NAME=$CI_PROJECT_NAMESPACE REGISTRY=$CI_REGISTRY ENV_TAG=latest
+    - make push-image TAG=$CI_PIPELINE_IID SERVICE_NAME=$CI_PROJECT_NAME PROJECT_NAME=$CI_PROJECT_NAMESPACE REGISTRY=$CI_REGISTRY ENV_TAG=latest
+  only:
+    - master
+
+deploy_image:
+  stage: deploy_image
+  script:
+    - docker service update --with-registry-auth --image registry.uicgroup.tech/a.xamroyev/dom-stroy-front:$CI_PIPELINE_IID 'dom-stroy-backend_frontend'
+  only:
+    - master
+  tags: 
+    - contaboAz

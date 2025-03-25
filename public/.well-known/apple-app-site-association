@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["KHGXWF53U9.uz.domstroy.domstroyapp"],
+        "paths": ["*"]
+      }
+    ]
+  }
+}

@@ -1,0 +1,122 @@
+/*! Toastification !*/
+.Vue-Toastification__toast {
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  width: 370px !important;
+  overflow: visible !important;
+  height: 78px !important;
+  background: #fff !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1) !important;
+  max-width: 100%;
+  justify-content: space-between !important;
+}
+
+@media screen and (max-width: 600px) {
+  .Vue-Toastification__toast {
+    margin-top: 15px !important;
+  }
+}
+
+.Vue-Toastification__toast-body {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px !important;
+  line-height: 16px !important;
+  color: #2a2a2a;
+  white-space: pre-line !important;
+}
+
+.Vue-Toastification__close-button {
+  padding-left: 0 !important;
+  color: #898b8b !important;
+  margin-right: 20px !important;
+}
+
+/* ERROR TOAST */
+.Vue-Toastification__toast--error .Vue-Toastification__icon {
+  color: transparent;
+  border-color: #fff !important;
+  background: url("@/assets/images/error.svg") !important;
+  background-size: 100% 100% !important;
+}
+
+.Vue-Toastification__toast--success .Vue-Toastification__icon {
+  color: #26d176;
+}
+
+.Vue-Toastification__toast--info .Vue-Toastification__icon {
+  color: #f8af02;
+}
+
+.Vue-Toastification__toast--info .Vue-Toastification__icon {
+  height: 60px;
+  border-left: 3px solid #f8af02;
+  border-radius: 3px;
+}
+
+.Vue-Toastification__toast--success .Vue-Toastification__icon {
+  height: 60px;
+  border-left: 3px solid #26d176;
+  border-radius: 3px;
+}
+
+.Vue-Toastification__toast--error .Vue-Toastification__icon {
+  height: 60px;
+  border-left: 3px solid #0B0A67;
+  border-radius: 3px;
+}
+
+/*! Toastification success !*/
+
+/* .done-icon { */
+
+/*    background: url("../../public/images/success.svg") !important; */
+
+/*    background-size: 100% 100% !important; */
+
+/*    height: 32px !important; */
+
+/*    width: 32px !important; */
+
+/* } */
+
+/* .error-icon { */
+
+/*    background: url("../../public/images/error.svg") !important; */
+
+/*    background-size: 100% 100% !important; */
+
+/*    height: 32px !important; */
+
+/*    width: 32px !important; */
+
+/* } */
+
+.Vue-Toastification__icon {
+  margin: 0 !important;
+}
+
+.Vue-Toastification__toast {
+  padding: 8px !important;
+}
+
+.Vue-Toastification__toast .Vue-Toastification__icon {
+  padding-left: 16px !important;
+  width: 44px;
+  margin-right: 16px !important;
+}
+
+.Vue-Toastification__container {
+  right: 0 !important;
+  display: flex !important;
+  align-items: flex-end;
+}
+
+.Vue-Toastification__close-button {
+  border: 1px solid !important;
+  border-radius: 99999px !important;
+  padding: 0px 8px 1px 8px !important;
+  font-size: 17px !important;
+}

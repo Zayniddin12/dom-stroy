@@ -1,0 +1,12 @@
+export type TButtonVariants =
+  | 'primary'
+  | 'secondary'
+  | 'light'
+  | 'register'
+  | 'info'
+  | 'silver'
+  | 'dark'
+  | 'secondary-light'
+  | 'primary-light'
+  | 'light-dark'
+  | 'thirdly'

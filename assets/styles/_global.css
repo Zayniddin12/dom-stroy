@@ -1,0 +1,71 @@
+body {
+  overflow-x: hidden !important;
+}
+
+
+
+.section-title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 130%;
+  display: flex;
+  align-items: center;
+  color: #383838;
+}
+
+@media only screen and (max-width: 600px) {
+  .section-title {
+    font-size: 18px;
+    line-height: 120%;
+    font-weight: 600;
+  }
+}
+
+*:not(span) {
+  font-family: "Proxima Nova", sans-serif;
+}
+
+.transition-200 {
+  transition: all 0.2s ease-in-out;
+}
+
+.transition-300 {
+  @apply duration-300 transition-all;
+}
+
+.container {
+  inset: 0;
+  margin: 0 auto;
+  padding: 0 16px;
+  max-width: 1216px !important;
+}
+
+@media (max-width: 1210px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+@media (max-width: 1024px) {
+  .container {
+    max-width: 1024px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 768px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    max-width: 100% !important;
+  }
+  .vhtml-text ol li,
+  .vhtml-text blockquote,
+  .vhtml-text ul li {
+    font-size: 14px !important;
+  }
+}

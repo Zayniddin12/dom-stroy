@@ -1,0 +1,92 @@
+<template>
+  <div class="mt-5 pr-5 pl-5 pb-5 text-center">
+    <p class="text-base leading-[19px] text-dark font-semibold mb-2 dark:text-white">
+      {{ $t('enter_confirm_code') }}
+    </p>
+    <p class="text-sm leading-[17px] text-normal text-gray-100 dark:text-white">
+      {{ $t('enter_confirm_code_text') }}
+    </p>
+    <p class="text-dark text-base leading-[19px] font-semibold mt-2.5 dark:text-white">
+      +{{ data?.verification_code?.phone }}
+    </p>
+    <FormInputOtp
+      v-model="values.otp"
+      :error="form.$v.value.otp.$error || otp_error"
+      class="justify-center mt-6 mb-4"
+    />
+    <div v-if="!sent" class="flex-center gap-1.5">
+      <p class="text-gray-200 text-xs leading-[15px] font-normal ">
+        {{ $t('left_time') }}:
+      </p>
+      <CommonTimer
+          :seconds="data?.verification_code?.wait || 60"
+          @timeout="sent = true"
+          class="text-red text-xs inline-block ml-2"
+      />
+    </div>
+    <div v-else>
+      <span class="text-gray-200 text-xs ">{{ $t('not_received_code') }}</span>
+      <span
+        @click="resend"
+        class="text-red text-xs ml-1.5 cursor-pointer transition-300 ease-in-out hover:opacity-70 "
+      >
+        {{ $t('resend_code') }}
+      </span>
+    </div>
+
+    <CommonButton class="w-full mt-16" :text="$t('submit')" @click="submit" v-bind="{ loading }"/>
+  </div>
+</template>
+
+<script setup lang="ts">
+import type { TForm } from '~/composables/useForm'
+type TData = {
+  expire: string
+  id: number
+  number: string
+  verification_code: {
+    phone: string
+    sent: boolean
+    wait: number
+  }
+  verify: boolean
+}
+const props = defineProps<{
+  form: TForm<any>
+  phone: string
+  data: TData
+  error: boolean
+  otp_error?: boolean
+  loading?: boolean
+}>()
+const { form } = unref(props)
+const { values, $v } = form
+const sent = ref(false)
+const emit = defineEmits(['submit', 'resend'])
+
+const submit = () => {
+  $v.value.$touch()
+  if (!form.$v.value.$invalid) {
+    emit('submit', values.otp)
+  }
+}
+
+const resend = () => {
+  sent.value = false
+  form.$v.value.$reset()
+  emit("resend")
+}
+
+const previous = ref('')
+watch(
+    () => values.otp,
+    () => {
+      if (values.otp.length === 6 && values.otp !== previous.value) {
+        previous.value = values.otp
+        submit()
+      }
+    }
+)
+</script>
+
+<style scoped></style>

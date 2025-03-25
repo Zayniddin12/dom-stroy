@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Бестселлеры",
+    "get_image": "categories/bestseller.png"
+  },
+  {
+    "title": "Парфюмерия",
+    "get_image": "categories/parfum.png"
+  },
+  {
+    "title": "Волосы",
+    "get_image": "categories/hair.png"
+  },
+  {
+    "title": "Лицо",
+    "get_image": "categories/facecream.png"
+  },
+  {
+    "title": "Тело и ванна",
+    "get_image": "categories/skincream.png"
+  },
+  {
+    "title": "Макияж",
+    "get_image": "categories/makiyaj.png"
+  },
+  {
+    "title": "Мужчинам",
+    "get_image": "categories/gillete.png"
+  },
+  {
+    "title": "Премиум",
+    "get_image": "categories/premium.png"
+  },
+  {
+    "title": "Лицо",
+    "get_image": "categories/facecream.png"
+  },
+  {
+    "title": "Волосы",
+    "get_image": "categories/hair.png"
+  },
+  {
+    "title": "Премиум",
+    "get_image": "categories/premium.png"
+  },
+  {
+    "title": "Макияж",
+    "get_image": "categories/makiyaj.png"
+  }
+]
